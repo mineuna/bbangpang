@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>비밀번호 확인</title>
+<link rel="stylesheet" href="/css/client/check/checkPassword.css"/>
+<script src="/js/client/check/checkInquiryDelete.js"></script>
+<link rel="stylesheet" href="/css/client/fragments/sidebar.css"/>
+<link rel="stylesheet" href="/css/client/fragments/header.css"/>
+<link rel="stylesheet" href="/css/client/fragments/common.css"/>
+</head>
+<body>
+<div class="header" th:replace="~{client/fragments/header}"></div>
+<br>
+<div class="sidebar" th:insert="client/fragments/sidebar :: sidebar"></div>
+<script src="/js/client/fragments/sidebar.js"></script>
+<div class="main">
+    <div class="check">
+        <form id="checkForm" method="post">
+            <input type="hidden" id="inquiryNo" name="inquiryNo" value="">
+            <div id="error-message" style="color: red;" th:text="${errorMessage}"></div>
+            <input type="password" id="inquiryPassword" name="inquiryPassword" placeholder="비밀번호를 입력하세요.">
+            <input type="submit" class="btn-delete" value="삭제">
+        </form>
+    </div>
+</div>
+</body>
+</html>

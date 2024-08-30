@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>문의글 작성</title>
+<link rel="stylesheet" href="/css/client/inquiry/addInquiry.css"/>
+<script src="http://code.jquery.com/jquery-latest.min.js" defer></script>
+<script src="/summernote/summernote-lite.js" defer></script>
+<script src="/summernote/lang/summernote-ko-KR.js" defer></script>
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/client/fragments/sidebar.css"/>
+<link rel="stylesheet" href="/css/client/fragments/header.css"/>
+<link rel="stylesheet" href="/css/client/fragments/common.css"/>
+</head>
+<body>
+<div class="header" th:replace="~{client/fragments/header}"></div><br>
+<div class="sidebar" th:insert="client/fragments/sidebar :: sidebar"></div>
+<script src="/js/client/fragments/sidebar.js"></script>
+<div class="main">
+    <div class="head">
+        문의글 작성
+    </div>
+    <br>
+    <form action="/inquiry/add" method="post">
+        <div>
+            <select>
+                <option>문의</option>
+            </select>
+            &nbsp;
+            <select class="inquiryType" id="type" name="inquiryType" required>
+                <option label="문의 유형 선택">문의 유형 선택</option>
+                <option value="질문">질문</option>
+                <option value="게시판 추가">게시판 추가</option>
+                <option value="기능 추가">기능 추가</option>
+                <option value="버그">버그</option>
+                <option value="기타">기타</option>
+            </select>
+            <br>
+            <input type="text" class="writer" name="inquiryWriter" value="빵친자" required>
+            <input type="password" class="password" name="inquiryPassword" placeholder="비밀번호를 입력해 주세요." required>
+            <br>
+            <input type="text" class="title" name="inquiryTitle" placeholder="제목을 입력해 주세요." required>
+            <br>
+            <div class="editor">
+                <textarea id="editor" name="inquiryContent" required></textarea>
+            </div>
+        </div>
+        <div>
+            <button class="btn-reset"><a th:href="@{/inquiry/list}">취소</a></button>
+            <input type="submit" class="btn-post" value="등록"/>
+        </div>
+    </form>
+</div>
+<script src="/js/client/inquiry/addInquiry.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+select {
+    width: 44.2%;
+}
+.title {
+    width: 90%;
+    padding:5px;
+    margin-bottom: 10px;
+}
+.editor {
+    width: 90%;
+}
+.writer,
+.password {
+    width: 44.2%;
+    padding: 5px;
+    margin: 10px 1% 10px 0;
+}
+.btn-post {
+    background-color: antiquewhite;
+    color: black;
+    border: none;
+    float: right;
+    padding: 10px;
+    margin: 10px 10px 10px 0;
+    border-radius: 4px;
+}
+.btn-reset {
+    background-color: antiquewhite;
+    color: black;
+    float:right;
+    padding: 10px;
+    border: none;
+    margin: 10px 10% 10px 0;
+    border-radius: 4px;
+}

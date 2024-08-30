@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>신고 목록</title>
+    <link rel="stylesheet" href="/css/admin/reportList.css"/>
+    <link rel="stylesheet" href="/css/admin/fragments/common.css"/>
+    <link rel="stylesheet" href="/css/admin/fragments/header.css"/>
+</head>
+<body style="background-color: white;">
+<div class="header" th:replace="~{admin/fragments/header}"></div>
+<br>
+<div class="head">
+    신고 목록
+</div>
+<div class="list">
+    <table class="report">
+        <tr>
+            <th style="width: 50px">신고 번호</th>
+            <th style="width: 300px">신고 글 / 댓글</th>
+            <th style="width: 150px">신고 사유</th>
+            <th style="width: 100px">신고일</th>
+        </tr>
+        <tr th:each="report: ${reportList}">
+            <td th:text="${report.reportNo}"></td>
+            <td>
+                <a th:if="${report.post != null}" th:href="@{/post/{postNo}(postNo=${report.post.postNo})}"
+                   th:text="'[게시글] ' + ${report.post.postTitle}"></a>
+                <a th:if="${report.comment != null}" th:href="@{/post/{postNo}(postNo=${report.comment.post.postNo})}"
+                   th:text="'[댓글] ' + ${report.comment.commentContent}"></a>
+            </td>
+            <td th:text="${report.reportReason}"></td>
+            <td th:text="${#temporals.format(report.reportRegistered, 'yy.MM.dd HH:mm')}"></td>
+        </tr>
+    </table>
+</div>
+<br>
+<div class="page">
+    <span th:if="${startPage > 1}">
+            <a th:href="@{/Qkdclswk/report/list(page=${prevPageGroupStart - 1})}" class="arrow">&laquo;</a>
+        </span>
+    <span class="pageNo" th:each="page : ${#numbers.sequence(startPage, endPage)}">
+            <a th:if="${page != nowPage}" th:href="@{/Qkdclswk/report/list(page = ${page -1})}" th:text="${page}"></a>
+            <strong th:if="${page == nowPage}" th:text="${page}" style="color: #FFB74D;">></strong>
+        </span>
+    <span th:if="${endPage < totalPage}">
+            <a th:href="@{/Qkdclswk/report/list(page=${nextPageGroupStart - 1})}" class="arrow">&raquo;</a>
+        </span>
+</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>문의글 내용</title>
+<link rel="stylesheet" href="/css/client/inquiry/inquiry.css"/>
+<script src="/js/client/inquiry/inquiry.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<link rel="stylesheet" href="/css/client/fragments/sidebar.css"/>
+<link rel="stylesheet" href="/css/client/fragments/header.css"/>
+<link rel="stylesheet" href="/css/client/fragments/common.css"/>
+</head>
+<body>
+<div class="header" th:replace="~{client/fragments/header}"></div><br>
+<div class="sidebar" th:insert="client/fragments/sidebar :: sidebar"></div>
+<script src="/js/client/fragments/sidebar.js"></script>
+<div class="main">
+    <div class="info">
+        <span class="board"><a th:href="@{/inquiry/list}">문의 사항</a></span>
+        <input type="hidden" id="inquiryNo" name="inquiryNo" th:value="${inquiry.inquiryNo}">
+        <br>
+        <span class="type" name="inquiryType" th:text="|[${inquiry.inquiryType}]|"></span>
+        <span class="title" name="inquiryTitle" th:text="${inquiry.inquiryTitle}"></span>
+        <div class="inquiry-info">
+            <span class="writer" name="inquiryWriter" th:text="|🍞${inquiry.inquiryWriter}|"></span>
+            <span class="date" name="inquiryRegistered"
+                  th:text="${#temporals.format(inquiry.inquiryRegistered, 'yy.MM.dd HH:mm')}"></span>
+            <span class="views" name="inquiryViews" th:text="|조회수 ${inquiry.inquiryViews}|"></span>
+        </div>
+        <br>
+    </div>
+    <div class="clearFixed"></div>
+    <br>
+    <div class="inquiry-content">
+        <span name="inquiryContent" th:utext="${inquiry.inquiryContent}"></span>
+    </div>
+    <div class="inquiry-actions">
+        <div class="left-actions">
+            <button class="inquiry-delete" th:onclick="|deleteInquiryCheck(${inquiry.inquiryNo})|">삭제</button>
+        </div>
+        <div class="right-actions">
+            <button class="inquiry-url" onclick="copyUrl()">url 복사</button>
+            <button class="inquiry-write"><a th:href="@{/inquiry/add}">글쓰기</a></button>
+            <button class="inquiry-list"><a th:href="@{/inquiry/list}">목록</a></button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

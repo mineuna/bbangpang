@@ -1,0 +1,93 @@
+main a {
+    font-size: 12px;
+}
+
+.post-info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.post-info span {
+    white-space: nowrap;
+}
+
+.post-report,
+.post-url,
+.post-list,
+.post-write,
+.post-edit,
+.post-delete{
+    background: none;
+    border: white;
+    font-size: 12px;
+}
+.info {
+    border-bottom: 1px solid antiquewhite;
+    width: 750px;
+    margin-bottom: -5px;
+}
+.title,
+.board {
+    font-size: 20px;
+    display: inline-block;
+    padding: 5px 0 5px 0;
+}
+.post-writer {
+    font-weight: bold;
+}
+.post-writer,
+.post-date,
+.post-views,
+.post-comments {
+    font-size: 12px;
+    float: right;
+}
+.post-comments {
+    float: right;
+    font-size: 12px;
+}
+.post-content {
+    width : 750px;
+    min-height : 200px;
+    height: auto;
+    border: none;
+    border-bottom: 1px solid antiquewhite;
+}
+.post-content img {
+    max-width: 90%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+.post-actions {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.left-actions {
+    display: flex;
+}
+
+.right-actions {
+    display: flex;
+    margin-left: 535px;
+}
+
+.left-actions button,
+.right-actions button {
+    margin-right: 10px;
+}
+
+.left-actions button:last-child,
+.right-actions button:last-child {
+    margin-right: 0;
+}
+
+.left-actions button:hover,
+.right-actions button:hover {
+    font-weight: bold;
+}

@@ -1,0 +1,10 @@
+.report {
+    width: 80%;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+.reported {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

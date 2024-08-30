@@ -1,0 +1,46 @@
+main a {
+    font-size: 15px;
+}
+.inquiry {
+    width: 90%;
+    border-bottom: 1px solid antiquewhite;
+    padding: 15px 0 15px 0;
+    line-height: 150%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.type {
+    background-color: antiquewhite;
+    border-radius: 15px;
+    padding: 5px;
+    font-size: 13px;
+}
+.comments {
+    font-size : 12px;
+}
+.writer,
+.date,
+.views {
+    font-size: 12px;
+    color: grey;
+}
+#view {
+    width: 12px;
+    fill: lightgrey;
+}
+input[type=submit] {
+    border: none;
+    padding: 3px 5px 3px 5px;
+}
+.btn-write {
+    background-color: antiquewhite;
+    color: black;
+    margin: 30px 79% 0;
+    border: none;
+    display: block;
+    width: 100px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 4px;
+}

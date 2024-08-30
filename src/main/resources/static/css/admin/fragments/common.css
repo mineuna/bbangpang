@@ -1,0 +1,101 @@
+body {
+    margin-left: 15%;
+}
+.head {
+    width: 80%;
+    font-size: 20px;
+    font-weight: bold;
+    padding : 10px 0 10px 0;
+    border-bottom: 1px solid black;
+}
+a {
+    font-size: 12px;
+    text-decoration: none;
+    color: black;
+}
+.page {
+    font-size: 15px;
+    margin: 3% 0 3% 38%;
+}
+.arrow {
+    color: #FFB74D;
+}
+.pageNo {
+    margin: 5px;
+}
+.search {
+    float: right;
+    padding : 20px 50% 0 0;
+}
+select {
+    padding: 5px
+}
+.list {
+    padding-top: 10px;
+    text-align: center;
+}
+.list th {
+    padding: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-bottom: 1px solid antiquewhite;
+}
+.list td {
+    padding:10px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    border-bottom: 1px solid antiquewhite;
+}
+.btn-delete,
+.btn-edit {
+    border: none;
+    background-color: antiquewhite;
+    padding: 3px 5px;
+    border-radius: 4px;
+}
+
+.search-container {
+    width: 850px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    margin-left: 270px;
+    text-align: center;
+}
+.search-form {
+    display: flex;
+    gap: 10px;
+}
+.search-type select,
+.search-input input {
+    padding: 5px;
+    border: 1px solid antiquewhite;
+    border-radius: 4px;
+}
+.search-submit input {
+    height: 26.67px;
+    padding: 5px;
+    border: 1px solid antiquewhite;
+    border-radius: 4px;
+    background-color: antiquewhite;
+    color: #333;
+    cursor: pointer;
+}
+.search-submit input:hover {
+    font-weight: bold;
+}
+.search-type select,
+.search-input input,
+.search-submit input[type="submit"] {
+    border: 1px solid antiquewhite;
+    padding: 5px;
+    border-radius: 4px;
+    outline: none;
+}
+.search-type select:focus,
+.search-input input:focus,
+.search-submit input[type="submit"]:focus {
+    border: 2px solid antiquewhite;
+}

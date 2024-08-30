@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>게시글 수정</title>
+<link rel="stylesheet" href="/css/client/post/editPost.css"/>
+<script src="/js/client/post/editPost.js" defer></script>
+<script src="http://code.jquery.com/jquery-latest.min.js" defer></script>
+<script src="/summernote/summernote-lite.js" defer></script>
+<script src="/summernote/lang/summernote-ko-KR.js" defer></script>
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/client/fragments/sidebar.css"/>
+<link rel="stylesheet" href="/css/client/fragments/header.css"/>
+<link rel="stylesheet" href="/css/client/fragments/common.css"/>
+</head>
+<body>
+<div class="header" th:replace="~{client/fragments/header}"></div><br>
+<div class="sidebar" th:insert="client/fragments/sidebar :: sidebar"></div>
+<script src="/js/client/fragments/sidebar.js"></script>
+<div class="main">
+    <div class="head">
+        게시글 수정
+    </div>
+    <br>
+    <form th:action="@{|/post/edit/${post.postNo}|}" method="post" name="editPostForm">
+        <input type="hidden" name="postNo" th:value="${post.postNo}">
+        <input type="hidden" name="selectedCategoryNo" th:value="${post.category.categoriesNo}"/>
+        <input type="hidden" name="selectedBoardNo" th:value="${post.board.boardNo}"/>
+        <div class="selectBoard">
+            <select class="board" name="categoryNo" required>
+                <option label="카테고리 선택"></option>
+                <option value="1">소식</option>
+                <option value="2">질문</option>
+                <option value="3">후기</option>
+            </select>
+            &nbsp;
+            <select id="board" name="boardNo" required>
+                <option label="게시판 선택"></option>
+            </select>
+        </div>
+        <input type="text" class="writer" name="postWriter" th:value="${post.postWriter}" required>
+        <input type="password" class="password" name="postPassword" th:value="${post.postPassword}"
+               placeholder="비밀번호를 입력해 주세요." required>
+        <br>
+        <input type="text" class="title" name="postTitle" th:value="${post.postTitle}" placeholder="제목을 입력해 주세요."
+               required>
+        <br>
+        <div class="editor">
+            <textarea name="postContent" id="editor" th:text="${post.postContent}" required></textarea>
+        </div>
+        <div>
+            <button class="btn-reset"><a th:href="@{|/post/${post.postNo}|}">취소</a></button>
+            <input type="submit" class="btn-post" value="수정"/>
+        </div>
+    </form>
+</div>
+<script src="/js/client/post/editPost.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sidebar</title>
+<link rel="stylesheet" href="/css/fragments/sidebar.css"/>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+<div th:fragment="sidebar" class="sidebar">
+    <div th:each="category : ${categories}" class="category-container">
+        <div class="category" data-category-id="${category.categoriesNo}">
+            <a th:href="@{/post/list(categoriesNo=${category.categoriesNo})}" class="category-link">
+                <span th:text="${category.categoriesName}"></span>
+            </a>
+            <span class="toggle-button"></span>
+        </div>
+        <div class="boards" id="boards-${category.categoriesNo}">
+            <a th:each="board : ${category.boards}" th:href="@{/post/list(boardNo=${board.boardNo})}"
+               th:text="${board.boardName}">Board Name</a>
+        </div>
+    </div>
+</div>
+<script src="/js/fragments/sidebar.js"></script>
+</body>
+</html>

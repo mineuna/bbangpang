@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>공지글 수정</title>
+<link rel="stylesheet" href="/css/admin/editNotice.css"/>
+<link rel="stylesheet" href="/css/admin/fragments/common.css"/>
+<link rel="stylesheet" href="/css/admin/fragments/header.css"/>
+<script src="http://code.jquery.com/jquery-latest.min.js" defer></script>
+<script src="/summernote/summernote-lite.js" defer></script>
+<script src="/summernote/lang/summernote-ko-KR.js" defer></script>
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+</head>
+<body style="background-color: white;">
+<div class="header" th:replace="~{admin/fragments/header}"></div>
+<br>
+<div class="head">
+    공지글 수정
+</div>
+<form th:action="@{|/notice/edit/${notice.noticeNo}|}" method="post" name="editNoticeForm">
+    <input type="hidden" name="noticeNo" th:value="${notice.noticeNo}">
+    <div>
+        <input type="text" name="noticeTitle" th:value="${notice.noticeTitle}" required>
+        <br>
+        <div class="editor">
+            <textarea name="noticeContent" id="editor" th:utext="${notice.noticeContent}" required></textarea>
+        </div>
+    </div>
+    <div>
+        <button class="btn-reset"><a th:href="@{/Qkdclswk/notice/list}">취소</a></button>
+        <input type="submit" class="btn-post" value="수정"/>
+    </div>
+</form>
+<script src="/js/admin/editNotice.js" defer></script>
+</body>
+</html>

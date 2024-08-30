@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>게시글 내용</title>
+<link rel="stylesheet" href="/css/client/post/post.css"/>
+<link rel="stylesheet" href="/css/client/comment/comment.css"/>
+<script src="/js/client/post/post.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<link rel="stylesheet" href="/css/client/fragments/sidebar.css"/>
+<link rel="stylesheet" href="/css/client/fragments/header.css"/>
+<link rel="stylesheet" href="/css/client/fragments/common.css"/>
+</head>
+<body>
+<div class="header" th:replace="~{client/fragments/header}"></div><br>
+<div class="sidebar" th:insert="client/fragments/sidebar :: sidebar"></div>
+<script src="/js/client/fragments/sidebar.js"></script>
+<div class="main">
+    <div class="info">
+        <span><a th:text="${post.category.categoriesName}"
+                 th:href="@{/post/list(categoriesNo=${post.category.categoriesNo})}"></a></span>
+        <input type="hidden" id="postNo" name="postNo" th:value="${post.postNo}">
+        <br>
+        <span class="board" name="boardName"><a th:text="|[${post.board.boardName}]|"
+                                                th:href="@{/post/list(boardNo=${post.board.boardNo})}"></a></span>
+        <span class="title" name="postTitle" th:text="${post.postTitle}"></span>
+        <br>
+        <div class="post-info">
+            <span class="post-writer" name="postWriter" th:text="|🍩${post.postWriter}|">&nbsp;</span>
+            <span class="post-date" name="postRegistered" th:if="${post.postUpdated == null}"
+                  th:text="${#temporals.format(post.postRegistered, 'yy.MM.dd HH:mm')}"></span>
+            <span class="post-date" name="postUpdated" th:unless="${post.postUpdated == null}"
+                  th:text="|${#temporals.format(post.postUpdated, 'yy.MM.dd HH:mm')} (수정)|"></span>
+            <span class="post-comments" th:text="|댓글 ${#lists.size(comments)}개|">&nbsp;</span>
+            <span class="post-views" name="postViews" th:text="|조회수 ${post.postViews}|">&nbsp;</span>
+        </div>
+        <br>
+    </div>
+    <div class="clearFixed"></div>
+    <br>
+    <div class="post-content">
+        <span name="postContent" th:utext="${post.postContent}"></span>
+    </div>
+    <div class="post-actions">
+        <div class="left-actions">
+            <button class="post-edit" th:onclick="|editPostCheck(${post.postNo})|">수정</button>
+            <button class="post-delete" th:onclick="|deletePostCheck(${post.postNo})|">삭제</button>
+            <button class="post-report" th:onclick="|postReportPopup(${post.postNo})|">신고</button>
+        </div>
+        <div class="right-actions">
+            <button class="post-url" onclick="copyUrl()">url 복사</button>
+            <button class="post-write"><a th:href="@{/post/add}">글쓰기</a></button>
+            <button class="post-list"><a th:href="@{/post/list}">목록</a></button>
+        </div>
+    </div>
+
+    <div class="clearFixed"></div>
+    <br><br>
+    <div th:insert="client/comment/comment :: comments"></div>
+    <script src="/js/client/post/post.js"></script>
+</div>
+</body>
+</html>

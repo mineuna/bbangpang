@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 61.5px;
+    left: 0;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    background-color: white;
+}
+
+.main {
+    margin: 65px 0 0 300px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+a:hover {
+    cursor: pointer;
+}
+button:hover {
+    cursor: pointer;
+}
+input[type=text],
+input[type=password] {
+    padding: 5px;
+}
+select {
+    padding: 5px
+}
+
+.head {
+    width: 90%;
+    font-size: 20px;
+    font-weight: bold;
+    padding : 10px 0 20px 0;
+    border-bottom: 1px solid antiquewhite;
+    text-align: center;
+}
+.search {
+    float: right;
+    padding : 20px 40% 10% 0;
+}
+.page {
+    font-size: 15px;
+    margin: 3% 0 3% 42%;
+}
+.arrow {
+    color: #FFB74D;
+}
+.pageNo {
+    margin: 5px;
+}
+div.clearFixed::after {
+    display: block;
+    content: "";
+    clear: both
+}
+
+.category {
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: antiquewhite;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 3px;
+}
+.category-link {
+    text-decoration: none;
+    color: #333;
+}
+.category-link:hover {
+    font-weight: 900;
+    color: #333;
+}
+.boards {
+    margin-left: 10px;
+    display: none;
+}
+.boards a {
+    display: block;
+    padding: 5px 0;
+    text-decoration: none;
+    color: #333;
+}
+.boards a:hover {
+    background-color: #e9ecef;
+}
+
+.toggle-button {
+    cursor: pointer;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5H7z" fill="%23333"/></svg>') no-repeat center center;
+    background-size: 16px 16px;
+    transition: transform 0.3s ease;
+}
+.expanded .toggle-button {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 7l5 5-5 5V7z" fill="%23333"/></svg>') no-repeat center center;
+    background-size: 16px 16px;
+    transform: rotate(180deg);
+}
+
+.search-container {
+    width: 850px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-left: 270px;
+    text-align: center;
+}
+
+.search-form {
+    display: flex;
+    gap: 10px;
+}
+
+.search-type select,
+.search-input input {
+    padding: 5px;
+    border: 1px solid antiquewhite;
+    border-radius: 4px;
+}
+
+.search-submit input {
+    height: 26.67px;
+    padding: 5px;
+    border: 1px solid antiquewhite;
+    border-radius: 4px;
+    background-color: antiquewhite;
+    color: #333;
+    cursor: pointer;
+}
+
+.search-submit input:hover {
+    font-weight: bold;
+}
+
+.search-type select,
+.search-input input,
+.search-submit input[type="submit"] {
+    border: 1px solid antiquewhite;
+    padding: 5px;
+    border-radius: 4px;
+    outline: none;
+}
+
+.search-type select:focus,
+.search-input input:focus,
+.search-submit input[type="submit"]:focus {
+    border: 2px solid antiquewhite;
+}

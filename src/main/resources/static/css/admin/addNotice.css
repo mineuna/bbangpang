@@ -1,0 +1,22 @@
+input[type=text] {
+    width: 80%;
+    padding: 5px;
+    margin: 10px 0 10px 0;
+}
+.editor {
+    width: 80%;
+}
+.btn-post,
+.btn-reset {
+    border: none;
+    float: right;
+    padding: 10px;
+    background-color: antiquewhite;
+    border-radius: 4px;
+}
+.btn-post {
+    margin: 10px 10px 10px 0;
+}
+.btn-reset {
+    margin: 10px 20% 10px 0;
+}

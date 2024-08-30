@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>게시글 목록</title>
+<link rel="stylesheet" href="/css/admin/postList.css"/>
+<link rel="stylesheet" href="/css/admin/fragments/common.css"/>
+<link rel="stylesheet" href="/css/admin/fragments/header.css"/>
+</head>
+<body style="background-color: white;">
+<div class="header" th:replace="~{admin/fragments/header}"></div>
+<br>
+<div class="head">
+    게시글 목록
+</div>
+<div class="list">
+    <table class="post">
+        <tr>
+            <th style="width: 50px">게시글 번호</th>
+            <th style="width: 150px">게시판 이름</th>
+            <th style="width: 400px">게시글 제목</th>
+            <th style="width: 150px">작성자</th>
+            <th style="width: 100px">작성일</th>
+            <th></th>
+        </tr>
+        <tr th:each="post: ${postList}">
+            <td th:text="${post.postNo}"></td>
+            <td th:text="${post.board.boardName}"></td>
+            <td><a th:text="${post.postTitle}" th:href="@{|/post/${post.postNo}|}"></a></td>
+            <td th:text="${post.postWriter}"></td>
+            <td th:if="${post.postUpdated == null}"
+                th:text="${#temporals.format(post.postRegistered, 'yy.MM.dd HH:mm')}"></td>
+            <td th:unless="${post.postUpdated == null}"
+                th:text="|${#temporals.format(post.postUpdated, 'yy.MM.dd HH:mm')} (수정)|"></td>
+            <td>
+                <button class="btn-delete"><a th:href="@{|delete/${post.postNo}|}">삭제</a></button>
+            </td>
+        </tr>
+    </table>
+</div>
+<br>
+<div class="page">
+    <span th:if="${startPage > 1}">
+            <a th:href="@{/Qkdclswk/post/list(page=${prevPageGroupStart - 1})}" class="arrow">&laquo;</a>
+        </span>
+    <span class="pageNo" th:each="page : ${#numbers.sequence(startPage, endPage)}">
+            <a th:if="${page != nowPage} and ${param.searchType} == null and ${param.searchKeyword == null}"
+               th:href="@{/Qkdclswk/post/list(page=${page - 1})}" th:text="${page}"></a>
+            <a th:if="${page != nowPage} and ${param.searchType} != null" th:href="@{/Qkdclswk/post/list(page=${page - 1},
+            searchType=${param.searchType}, searchKeyword=${param.searchKeyword})}" th:text="${page}"></a>
+            <strong th:if="${page == nowPage}" th:text="${page}" style="color: #FFB74D;"></strong>
+        </span>
+    <span th:if="${endPage < totalPage}">
+            <a th:href="@{/Qkdclswk/post/list(page=${nextPageGroupStart - 1})}" class="arrow">&raquo;</a>
+        </span>
+</div>
+<div class="search-container">
+    <form th:action="@{/Qkdclswk/post/list}" method="get" class="search-form">
+        <div class="search-type">
+            <select id="searchType" name="searchType">
+                <option value="postTitle">제목</option>
+                <option value="postWriter">작성자</option>
+                <option value="postContent">내용</option>
+            </select>
+        </div>
+        <div class="search-input">
+            <input type="text" id="searchKeyword" name="searchKeyword" placeholder="검색어를 입력해 주세요.">
+        </div>
+        <div class="search-submit">
+            <input type="submit" value="검색">
+        </div>
+    </form>
+</div>
+</body>
+</html>

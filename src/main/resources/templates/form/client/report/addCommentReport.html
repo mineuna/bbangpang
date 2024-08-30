@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>댓글 신고</title>
+<link rel="stylesheet" href="/css/client/report/addReport.css"/>
+<script src="/js/client/report/addCommentReport.js"></script>
+</head>
+<body>
+<div class="report">
+    <div class="title">
+        댓글 신고
+    </div>
+    <form id="reportForm" method="post"
+          th:action="@{/post/{postNo}/comments/report/{commentNo}(postNo=${postNo}, commentNo=${commentNo})}">
+        <input type="hidden" id="commentNo" name="commentNo" value="">
+        <label><input type="radio" name="reportReason" value="스팸 / 도배">스팸 / 도배</label><br>
+        <label><input type="radio" name="reportReason" value="음란물">음란물</label><br>
+        <label><input type="radio" name="reportReason" value="불법 정보">불법 정보 포함</label><br>
+        <label><input type="radio" name="reportReason" value="개인 정보">개인 정보 노출</label><br>
+        <label><input type="radio" name="reportReason" value="불쾌한 표현">불쾌한 표현</label><br>
+        <label><input type="radio" name="reportReason" value="기타">기타</label><br>
+        <input type="submit" class="btn-report" value="신고">
+    </form>
+</div>
+</body>
+</html>

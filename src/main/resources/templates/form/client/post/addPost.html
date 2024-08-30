@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>게시글 작성</title>
+<link rel="stylesheet" href="/css/client/post/addPost.css"/>
+<script src="/js/client/post/addPost.js" defer></script>
+<script src="http://code.jquery.com/jquery-latest.min.js" defer></script>
+<script src="/summernote/summernote-lite.js" defer></script>
+<script src="/summernote/lang/summernote-ko-KR.js" defer></script>
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/client/fragments/sidebar.css"/>
+<link rel="stylesheet" href="/css/client/fragments/header.css"/>
+<link rel="stylesheet" href="/css/client/fragments/common.css"/>
+</head>
+<body>
+<div class="header" th:replace="~{client/fragments/header}"></div><br>
+<div class="sidebar" th:insert="client/fragments/sidebar :: sidebar"></div>
+<script src="/js/client/fragments/sidebar.js"></script>
+<div class="main">
+    <div class="head">
+        게시글 작성
+    </div>
+    <br>
+    <form th:action="@{|/post/add|}" method="post" name="addPostForm" enctype="multipart/form-data">
+        <div class="selectBoard">
+            <select class="board" name="categoryNo" required>
+                <option value="" disabled selected>카테고리 선택</option>
+                <option value="1">소식</option>
+                <option value="2">질문</option>
+                <option value="3">후기</option>
+            </select>
+            &nbsp;
+            <select class="board" name="boardNo" required>
+                <option value="" disabled selected>게시판 선택</option>
+            </select>
+            <br>
+            <input type="text" class="writer" name="postWriter" value="빵친자" required>
+            <input type="password" class="password" name="postPassword" placeholder="비밀번호를 입력해 주세요." required>
+            <br>
+            <input type="text" class="title" name="postTitle" placeholder="제목을 입력해 주세요." required>
+            <br>
+            <div class="editor">
+                <textarea id="editor" name="postContent" required></textarea>
+            </div>
+        </div>
+        <div>
+            <button class="btn-reset"><a th:href="@{/post/list}">취소</a></button>
+            <input type="submit" class="btn-post" value="등록"/>
+        </div>
+    </form>
+</div>
+<script src="/js/client/post/addPost.js" defer></script>
+</body>
+</html>

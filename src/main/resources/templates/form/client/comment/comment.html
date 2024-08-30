@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>댓글</title>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+<div class="comments-container" th:fragment="comments">
+    <div>
+        <span class="comment-head" th:text="|🥐댓글 ${#lists.size(comments)}개🥐|"></span>
+        <br>
+        <div class="comment-no-comments" th:if="${#lists.isEmpty(comments)}">
+            <p> 댓글을 작성해주세요!</p>
+        </div>
+        <div th:if="${comments != null}">
+            <ul>
+                <li class="comment" th:each="comment : ${comments}">
+                    <div>
+                        <input type="hidden" id="commentNo" name="commentNo" th:value="${comment.commentNo}">
+                        <span class="comment-delete"><button class="comment-delete" type="button"
+                                                             th:onclick="|location.href='/comment/delete/check?postNo=${postNo}&commentNo=${comment.commentNo}'|">&nbsp;삭제</button></span>
+                        <span class="comment-report"><button class="comment-report"
+                                                             th:onclick="|commentReportPopup(${post.postNo},${comment.commentNo})|">신고&nbsp;</button></span>
+                    </div>
+                    <div class="comment-details">
+                        <span class="comment-writer" th:text="|🍰${comment.commentWriter}|"></span>
+                        <span class="comment-date" th:text="${#dates.format(new java.util.Date(), 'MM.dd')}"></span><br>
+                        <span class="comment-content" th:text="${comment.commentContent}"></span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <br>
+        <script src="/js/client/comment/comment.js"></script>
+        <div class="add">
+            <form th:action="@{|/post/${postNo}/comments|}" method="post">
+                <table>
+                    <tr>
+                        <td class="writerInfo">
+                            <input type="text" name="commentWriter" value="빵친자">
+                        </td>
+                        <td rowspan="2">
+                            <textarea rows="4" name="commentContent" placeholder="댓글을 작성해 주세요." required></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="writerInfo">
+                            <input type="password" name="commentPassword" placeholder="비밀번호" required>
+                        </td>
+                        <td colspan="1" class="submit-cell">
+                            <input type="submit" value="등록">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

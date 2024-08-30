@@ -1,0 +1,123 @@
+.comments-container {
+    width: 900px;
+    padding: 10px;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.comment-head {
+    font-size: 15px;
+    border-bottom: none !important;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.comment .head {
+    margin-bottom: 20px;
+}
+.comment-no-comments {
+    margin-top: 30px;
+    font-size: 14px;
+}
+
+ul,
+li {
+    margin: 0;
+    padding: 0;
+}
+ul {
+    list-style-type: none;
+}
+li {
+    line-height: 170%;
+}
+.comment-delete,
+.comment-report {
+    background: none;
+    border: white;
+    font-size: 10px;
+    padding: 0;
+    margin-top: 7.5px;
+}
+button:hover {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.comment-details {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+
+.comment {
+    width: 730px;
+    border-bottom: 1px solid antiquewhite;
+    padding: 5px 0 5px 0;
+}
+.comment-writer {
+    font-weight: bold;
+    font-size: 12px;
+}
+.comment-content {
+    font-size : 15px;
+}
+.comment-date {
+    font-size: 10px;
+}
+table {
+    border-collapse: collapse;
+    width: 750px;
+}
+textarea {
+    width: 115%;
+    margin: 5px 0 0 10px;
+    resize: none;
+}
+input[type=text],
+input[type=password],
+textarea {
+    border: 1px solid antiquewhite;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+input[type=text]:focus,
+input[type=password]:focus,
+textarea:focus {
+    border: 2px solid antiquewhite;
+    outline: none;
+}
+
+input[type=text],
+input[type=password] {
+    width: 140px;
+}
+textarea {
+    width: 510px;
+}
+
+.writerInfo {
+    width: 10%;
+}
+.comment-report,
+.comment-delete {
+    float: right;
+    padding-top: 5px;
+}
+
+.submit-cell {
+    text-align: right;
+    padding-right: 18px;
+}
+input[type=submit] {
+    border: 1px solid antiquewhite;
+    padding: 5px 10px;
+    border-radius: 4px;
+    background-color: antiquewhite;
+    color: #333;
+}
+input[type=submit]:hover {
+    cursor: pointer;
+    font-weight: bold;
+}

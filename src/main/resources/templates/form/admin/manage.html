@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>관리자 페이지</title>
+<link rel="stylesheet" href="/css/admin/manage.css"/>
+<link rel="stylesheet" href="/css/admin/fragments/common.css"/>
+<link rel="stylesheet" href="/css/admin/fragments/header.css"/>
+<script src="/js/admin/manage.js" defer></script>
+</head>
+<body style="background-color: white;">
+<div class="header" th:replace="~{admin/fragments/header}"></div>
+<br>
+<div class="head">
+    관리자 페이지
+</div>
+<div class="list">
+    <table class="category">
+        <tr>
+            <th style="width: 50px">카테고리 번호</th>
+            <th style="width: 150px">카테고리</th>
+            <th style="width: 550px">설명</th>
+            <th style="width: 100px">생성일</th>
+            <th></th>
+        </tr>
+        <tr th:each="category : ${categories}">
+            <td th:text="${category.categoriesNo}"></td>
+            <td><a th:href="@{/QKdclswk/manage/category/{id}(id=${category.categoriesNo})}"
+                   th:text="${category.categoriesName}"
+                   th:classappend="${selectedCategory != null and selectedCategory.categoriesNo == category.categoriesNo} ? 'selected-category' : ''"></a>
+            </td>
+            <td th:text="${category.categoriesDescription}"></td>
+            <td th:text="${#temporals.format(category.categoriesRegistered, 'yy.MM.dd HH:mm')}"></td>
+            <td>
+                <form th:action="@{/QKdclswk/manage/category/delete/{id}(id=${category.categoriesNo})}" method="post"
+                      style="display:inline;">
+                    <button class="btn-delete" type="submit">삭제</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+    <div class="add">
+        <button class="btn-write"><a href="#" onclick="toggleForm('createCategoryForm')">카테고리 추가</a></button>
+        <form id="createCategoryForm" class="create-form" th:action="@{/QKdclswk/manage/manage/category/add}"
+              th:object="${categoryDTO}" method="post">
+            <input type="text"th:field="*{categoriesName}" placeholder="카테고리 이름" required/>
+            <input type="text"th:field="*{categoriesDescription}" placeholder="카테고리 설명" required/>
+            <button type="submit">추가</button>
+        </form>
+    </div>
+    <br><br>
+    <table class="board">
+        <tr>
+            <th style="width: 50px">게시판 번호</th>
+            <th style="width: 150px">카테고리</th>
+            <th style="width: 150px">게시판 이름</th>
+            <th style="width: 400px">설명</th>
+            <th style="width: 100px">생성일</th>
+            <th></th>
+        </tr>
+        <tr th:each="board : ${boards}">
+            <td th:text="${board.boardNo}"></td>
+            <td th:text="${board.categoryDTO.categoriesName}"></td>
+            <td th:text="${board.boardName}"></td>
+            <td th:text="${board.boardDescription}"></td>
+            <td th:text="${#temporals.format(board.boardRegistered, 'yy.MM.dd HH:mm')}"></td>
+            <td>
+                <form th:action="@{/QKdclswk/manage/board/delete/{id}(id=${board.boardNo})}" method="post"
+                      style="display:inline;">
+                    <button class="btn-delete" type="submit">삭제</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="add">
+    <button class="btn-write"><a href="#" onclick="toggleForm('createBoardForm')">게시판 추가</a></button>
+    <form id="createBoardForm" class="create-form" th:action="@{/manage/board/add}" th:object="${boardDTO}"
+          method="post">
+        <select th:field="*{categoryDTO.categoriesNo}" required>
+            <option th:each="category : ${categories}" th:value="${category.categoriesNo}"
+                    th:text="${category.categoriesName}"></option>
+        </select>
+        <input type="text" th:field="*{boardName}" placeholder="게시판 이름" required/>
+        <input type="text" th:field="*{boardDescription}" placeholder="게시판 설명" required/>
+        <button type="submit">추가</button>
+    </form>
+</div>
+</body>
+</html>

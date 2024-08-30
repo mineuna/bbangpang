@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>공지 내용</title>
+<link rel="stylesheet" href="/css/client/notice/notice.css"/>
+<script src="/js/client/notice/notice.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<link rel="stylesheet" href="/css/client/fragments/sidebar.css"/>
+<link rel="stylesheet" href="/css/client/fragments/header.css"/>
+<link rel="stylesheet" href="/css/client/fragments/common.css"/>
+</head>
+<body>
+<div class="header" th:replace="~{client/fragments/header}"></div>
+<br>
+<div class="sidebar" th:insert="client/fragments/sidebar :: sidebar"></div>
+<script src="/js/client/fragments/sidebar.js"></script>
+<div class="main">
+    <div class="info">
+        <span class="board"><a th:href="@{/notice/list}">공지 사항</a></span>
+        <br>
+        <input type="hidden" name="noticeNo" th:value="${notice.noticeNo}">
+        <span class="title" name="noticeTitle" th:text="${notice.noticeTitle}"></span>
+        <div class="notice-info">
+            <span class="writer" name="noticeWriter">&nbsp; 🎂관리자</span>
+            <span class="date" name="noticeRegistered" th:if="${notice.noticeUpdated == null}"
+                  th:text="${#temporals.format(notice.noticeRegistered, 'yy.MM.dd HH:mm')}"></span>
+            <span class="date" name="noticeUpdated" th:unless="${notice.noticeUpdated == null}"
+                  th:text="|${#temporals.format(notice.noticeUpdated, 'yy.MM.dd HH:mm')} (수정)|"></span>
+            <span class="views" name="noticeViews" th:text="|조회수 ${notice.noticeViews}|">&nbsp;</span>
+        </div>
+        <br>
+    </div>
+    <div class="clearFixed"></div>
+    <br>
+    <div class="notice-content">
+        <span name="noticeContent" th:utext="${notice.noticeContent}"></span>
+    </div>
+    <div class="notice-actions">
+        <span class="url"><button class="btn-url" onclick="copyUrl()">url 복사</button></span>
+        <button class="btn-list"><a th:href="@{/notice/list}">목록</a></button>
+    </div>
+</div>
+</body>
+</html>

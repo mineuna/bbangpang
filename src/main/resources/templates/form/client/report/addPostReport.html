@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>게시글 신고</title>
+<link rel="stylesheet" href="/css/client/report/addReport.css"/>
+<script src="/js/client/report/addPostReport.js"></script>
+</head>
+<body>
+<div class="report">
+    <div class="title">
+        게시글 신고
+    </div>
+    <form id="reportForm" method="post">
+        <input type="hidden" id="postNo" name="postNo" value="">
+        <label><input type="radio" name="reportReason" value="스팸 / 도배">스팸 / 도배</label><br>
+        <label><input type="radio" name="reportReason" value="음란물">음란물</label><br>
+        <label><input type="radio" name="reportReason" value="불법 정보">불법 정보 포함</label><br>
+        <label><input type="radio" name="reportReason" value="개인 정보">개인 정보 노출</label><br>
+        <label><input type="radio" name="reportReason" value="불쾌한 표현">불쾌한 표현</label><br>
+        <label><input type="radio" name="reportReason" value="기타">기타</label><br>
+        <input type="submit" class="btn-report" value="신고">
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+main a {
+    font-size: 15px;
+}
+.orderType {
+    padding : 10px 0 10px 0;
+}
+button {
+    padding : 5px 10px 5px 10px;
+    border-radius: 20px;
+    border-width: thin;
+    border-color: antiquewhite;
+    background-color: white;
+    font-size: 11px;
+}
+.post {
+    width: 80%;
+    border-bottom: 1px solid antiquewhite;
+    padding: 10px 0 10px 0;
+}
+.postImg {
+    float: left;
+}
+.postInfo {
+    line-height: 150%;
+}
+.board {
+    background-color: antiquewhite;
+    border-radius: 15px;
+    padding: 5px;
+    font-size: 13px;
+}
+.comments {
+    font-size : 12px;
+}
+.writer,
+.date,
+.views {
+    font-size: 12px;
+    color: grey;
+}
+#view {
+    width: 12px;
+    fill: lightgrey;
+}

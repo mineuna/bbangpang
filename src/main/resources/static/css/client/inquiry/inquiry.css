@@ -1,0 +1,91 @@
+main a {
+    font-size: 12px;
+}
+
+
+button {
+    background: none;
+    border: white;
+    font-size: 12px;
+}
+.info {
+    border-bottom: 1px solid antiquewhite;
+    width: 750px;
+    margin-bottom: -5px;
+}
+.inquiry-info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 10px;
+}
+.inquiry-info span {
+    white-space: nowrap;
+}
+
+.inquiry-url,
+.inquiry-delete,
+.inquiry-write,
+.inquiry-list {
+    background: none;
+    border: white;
+    font-size: 12px;
+}
+.title {
+    font-size: 20px;
+    display: inline-block;
+    padding: 5px 0 5px 0;
+}
+.writer {
+    font-weight: bold;
+}
+.writer,
+.date,
+.views,
+.comments{
+    font-size: 12px;
+    float: right;
+}
+.content {
+    width : 700px;
+    min-height : 500px;
+    height: auto;
+    border: 1px solid black;
+}
+.inquiry-content {
+    width : 750px;
+    min-height : 200px;
+    height: auto;
+    border: none;
+    border-bottom: 1px solid antiquewhite;
+}
+.inquiry-actions {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.left-actions {
+    display: flex;
+}
+
+.right-actions {
+    display: flex;
+    margin-left: 600px;
+}
+
+.left-actions button,
+.right-actions button {
+    margin-right: 10px;
+}
+
+.left-actions button:last-child,
+.right-actions button:last-child {
+    margin-right: 0;
+}
+
+.left-actions button:hover,
+.right-actions button:hover {
+    font-weight: bold;
+}
