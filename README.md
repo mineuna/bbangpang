@@ -101,7 +101,8 @@
 <img src="https://github.com/user-attachments/assets/5eefee7e-b35e-4438-bb51-5233efc2260d" width="400" height="300">
 
 - 게시글 신고
-<img src="https://github.com/user-attachments/assets/c613c18f-9bf4-44a6-b329-ec633e062400" width="300" height="300">
+<img src="https://github.com/user-attachments/assets/700a745a-ae79-408a-ba54-3829c0f8e0a9" width="450">
+<img src="https://github.com/user-attachments/assets/c613c18f-9bf4-44a6-b329-ec633e062400" width="250" height="250">
 
 - 댓글 작성, 삭제    
 ![댓글 작성 삭제](https://github.com/user-attachments/assets/319ac1ec-0aac-4647-8c28-fa4ccf981aa9)
