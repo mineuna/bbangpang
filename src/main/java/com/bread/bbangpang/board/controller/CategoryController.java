@@ -13,7 +13,7 @@ import java.util.Collections;
 import java.util.List;
 
 @Controller
-@RequestMapping("/QKdclswk/manage")
+@RequestMapping("/Qkdclswk/manage")
 public class CategoryController {
 
     @Autowired
@@ -51,21 +51,29 @@ public class CategoryController {
     public String addCategory(@ModelAttribute CategoryDTO categoryDTO) {
         categoryService.saveCategory(categoryDTO);
 
-        return "redirect:/QKdclswk/manage";
+        return "redirect:/Qkdclswk/manage";
     }
 
     @PostMapping("/board/add")
     public String addBoard(@ModelAttribute BoardDTO boardDTO) {
         boardService.saveBoard(boardDTO);
 
-        return "redirect:/QKdclswk/manage";
+        return "redirect:/Qkdclswk/manage";
     }
 
     @PostMapping("/category/delete/{categoriesNo}")
-    public String delete(@PathVariable Long categoriesNo) {
+    public String deleteCategory(@PathVariable Long categoriesNo) {
         categoryService.deleteCategories(Collections.singletonList(categoriesNo));
 
-        return "redirect:/QKdclswk/manage";
+        return "redirect:/Qkdclswk/manage";
+    }
+
+    @PostMapping("/board/delete/{boardNo}")
+    public String deleteBoard(@PathVariable int boardNo) {
+        List<Long> boardIds = Collections.singletonList((long) boardNo);
+        boardService.deleteBoards(boardIds);
+
+        return "redirect:/Qkdclswk/manage";
     }
 
 

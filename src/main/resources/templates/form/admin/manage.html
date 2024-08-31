@@ -25,14 +25,14 @@
         </tr>
         <tr th:each="category : ${categories}">
             <td th:text="${category.categoriesNo}"></td>
-            <td><a th:href="@{/QKdclswk/manage/category/{id}(id=${category.categoriesNo})}"
+            <td><a th:href="@{/Qkdclswk/manage/category/{id}(id=${category.categoriesNo})}"
                    th:text="${category.categoriesName}"
                    th:classappend="${selectedCategory != null and selectedCategory.categoriesNo == category.categoriesNo} ? 'selected-category' : ''"></a>
             </td>
             <td th:text="${category.categoriesDescription}"></td>
             <td th:text="${#temporals.format(category.categoriesRegistered, 'yy.MM.dd HH:mm')}"></td>
             <td>
-                <form th:action="@{/QKdclswk/manage/category/delete/{id}(id=${category.categoriesNo})}" method="post"
+                <form th:action="@{/Qkdclswk/manage/category/delete/{id}(id=${category.categoriesNo})}" method="post"
                       style="display:inline;">
                     <button class="btn-delete" type="submit">삭제</button>
                 </form>
@@ -41,7 +41,7 @@
     </table>
     <div class="add">
         <button class="btn-write"><a href="#" onclick="toggleForm('createCategoryForm')">카테고리 추가</a></button>
-        <form id="createCategoryForm" class="create-form" th:action="@{/QKdclswk/manage/category/add}"
+        <form id="createCategoryForm" class="create-form" th:action="@{/Qkdclswk/manage/category/add}"
               th:object="${categoryDTO}" method="post">
             <input type="text"th:field="*{categoriesName}" placeholder="카테고리 이름" required/>
             <input type="text"th:field="*{categoriesDescription}" placeholder="카테고리 설명" required/>
@@ -65,8 +65,7 @@
             <td th:text="${board.boardDescription}"></td>
             <td th:text="${#temporals.format(board.boardRegistered, 'yy.MM.dd HH:mm')}"></td>
             <td>
-                <form th:action="@{/QKdclswk/manage/board/delete/{id}(id=${board.boardNo})}" method="post"
-                      style="display:inline;">
+                <form th:action="@{/Qkdclswk/manage/board/delete/{id}(id=${board.boardNo})}" method="post" style="display:inline;">
                     <button class="btn-delete" type="submit">삭제</button>
                 </form>
             </td>
@@ -75,7 +74,7 @@
 </div>
 <div class="add">
     <button class="btn-write"><a href="#" onclick="toggleForm('createBoardForm')">게시판 추가</a></button>
-    <form id="createBoardForm" class="create-form" th:action="@{/QKdclswk/manage/board/add}" th:object="${boardDTO}"
+    <form id="createBoardForm" class="create-form" th:action="@{/Qkdclswk/manage/board/add}" th:object="${boardDTO}"
           method="post">
         <select th:field="*{categoryDTO.categoriesNo}" required>
             <option th:each="category : ${categories}" th:value="${category.categoriesNo}"
