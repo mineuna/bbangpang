@@ -97,8 +97,8 @@
 ![게시글 작성](https://github.com/user-attachments/assets/4e26e351-00d9-4123-b8b7-08a9dd39dec1)
 
 -  게시글 수정, 삭제
-<img src="https://github.com/user-attachments/assets/a2abfd4d-0ce2-4aa3-83a6-110a819e2685" width="420" height="300">
-<img src="https://github.com/user-attachments/assets/5eefee7e-b35e-4438-bb51-5233efc2260d" width="420" height="300">
+<img src="https://github.com/user-attachments/assets/a2abfd4d-0ce2-4aa3-83a6-110a819e2685" width="400" height="300">
+<img src="https://github.com/user-attachments/assets/5eefee7e-b35e-4438-bb51-5233efc2260d" width="400" height="300">
 
 - 게시글 신고
 <img src="https://github.com/user-attachments/assets/c613c18f-9bf4-44a6-b329-ec633e062400" width="300" height="300">
@@ -111,8 +111,8 @@
 ![관리자 페이지](https://github.com/user-attachments/assets/6796812a-1fee-46ff-ae57-bbc0f61767d4)
 
 - 카테고리, 게시판 추가
-<img src="https://github.com/user-attachments/assets/f4495b8f-e01a-406d-acab-70be5bd4b654" width="420" height="300">
-<img src="https://github.com/user-attachments/assets/7088f609-34aa-46e5-be0b-9b9ee0f46166" width="420" height="300">
+<img src="https://github.com/user-attachments/assets/f4495b8f-e01a-406d-acab-70be5bd4b654" width="400" height="300">
+<img src="https://github.com/user-attachments/assets/7088f609-34aa-46e5-be0b-9b9ee0f46166" width="400" height="300">
 
 - 카테고리 삭제
 <img src="https://github.com/user-attachments/assets/7c6f09a0-be76-4970-aad3-f6864a3fbf81" width="450" height="300">
